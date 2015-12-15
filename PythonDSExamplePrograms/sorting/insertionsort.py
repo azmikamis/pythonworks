@@ -11,15 +11,15 @@ def insertionSort(alist):
      alist[position]=currentvalue
 
 def myinsertionsort(A):
-    for passnum in range(1,len(A)):
-        currval = A[passnum]
-        index = passnum
+    for i in range(1,len(A)):
+        x = A[i]
+        j = i
 
-        while index>0 and A[index-1]>currval:
-            A[index] = A[index-1]
-            index -= 1
+        while j>0 and A[j-1]>x:
+            A[j] = A[j-1]
+            j -= 1
             
-        A[index] = currval
+        A[j] = x
         
 alist = [54,26,93,17,77,31,44,55,20]
 insertionSort(alist)

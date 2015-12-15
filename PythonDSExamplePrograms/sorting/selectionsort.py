@@ -10,13 +10,13 @@ def selectionSort(alist):
        alist[positionOfMax] = temp
 
 def myselectionsort(A):
-    for passnum in range(len(A)):
-        indexmin = passnum
-        for index in range(passnum+1,len(A)):
-            if A[index] < A[indexmin]:
-                indexmin = index
-        
-        A[passnum], A[indexmin] = A[indexmin], A[passnum]
+    for j in range(len(A)):
+        imin = j
+        for i in range(j+1,len(A)):
+            if A[i] < A[imin]:
+                imin = i
+        if imin != j:
+            A[j], A[imin] = A[imin], A[j]
 
             
 alist = [54,26,93,17,77,31,44,55,20]

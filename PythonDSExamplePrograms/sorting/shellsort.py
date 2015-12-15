@@ -25,16 +25,16 @@ def gapInsertionSort(alist,start,gap):
 def myshellsort(A):
     gap = len(A) // 2
     while gap > 0:
-        for index in range(gap):
-            for i in range(index+gap, len(A), gap):
-                currval = A[i]
-                position = i
+        for i in range(gap):
+            for j in range(i+gap, len(A), gap):
+                x = A[j]
+                p = j
                 
-                while position >= gap and A[position-gap] > currval:
-                    A[position] = A[position-gap]
-                    position -= gap
+                while p >= gap and A[p-gap] > x:
+                    A[p] = A[p-gap]
+                    p -= gap
                     
-                A[position] = currval
+                A[p] = x
         gap //= 2
             
 alist = [54,26,93,17,77,31,44,55,20]
