@@ -1,4 +1,4 @@
-def mybinarysearch(A, key):
+def binarysearch(A, key):
     imin = 0
     imax = len(A)-1
     
@@ -13,6 +13,6 @@ def mybinarysearch(A, key):
             
     return False
     
-testlist2 = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
-print(mybinarysearch(testlist2, 3))
-print(mybinarysearch(testlist2, 13))
+alist1 = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
+print(binarysearch(alist1, 3))
+print(binarysearch(alist1, 13))

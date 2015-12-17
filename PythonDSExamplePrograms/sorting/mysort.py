@@ -1,4 +1,4 @@
-def mybubblesort(A):
+def bubblesort(A):
     n = len(A)
     while True:
         swapped = False        
@@ -10,11 +10,11 @@ def mybubblesort(A):
         if not swapped:
             break
 
-alist = [54,26,93,17,77,31,44,55,20]
-mybubblesort(alist)
-print(alist)
+alist1 = [54,26,93,17,77,31,44,55,20]
+bubblesort(alist1)
+print(alist1)
 
-def myinsertionsort(A):
+def insertionsort(A):
     for i in range(1,len(A)):
         x = A[i]
         j = i
@@ -25,11 +25,11 @@ def myinsertionsort(A):
             
         A[j] = x
 
-alist = [54,26,93,17,77,31,44,55,20]
-myinsertionsort(alist)
-print(alist)
+alist2 = [54,26,93,17,77,31,44,55,20]
+insertionsort(alist2)
+print(alist2)
 
-def myselectionsort(A):
+def selectionsort(A):
     for j in range(len(A)):
         imin = j
         for i in range(j+1,len(A)):
@@ -38,11 +38,11 @@ def myselectionsort(A):
         if imin != j:
             A[j], A[imin] = A[imin], A[j]
 
-alist = [54,26,93,17,77,31,44,55,20]
-myselectionsort(alist)
-print(alist)
+alist3 = [54,26,93,17,77,31,44,55,20]
+selectionsort(alist3)
+print(alist3)
 
-def myshellsort(A):
+def shellsort(A):
     gap = len(A) // 2
     while gap > 0:
         for i in range(gap):
@@ -57,20 +57,20 @@ def myshellsort(A):
                 A[p] = x
         gap //= 2
 
-alist = [54,26,93,17,77,31,44,55,20]
-myshellsort(alist)
-print(alist)
+alist4 = [54,26,93,17,77,31,44,55,20]
+shellsort(alist4)
+print(alist4)
 
-def myquicksort(A):
-    myquicksorthelper(A,0,len(A)-1)
+def quicksort(A):
+    quicksorthelper(A,0,len(A)-1)
     
-def myquicksorthelper(A, lo, hi):
+def quicksorthelper(A, lo, hi):
     if lo < hi:
-        p = mypartition(A, lo, hi)
-        myquicksorthelper(A, lo, p-1)
-        myquicksorthelper(A, p+1, hi)        
+        p = partition(A, lo, hi)
+        quicksorthelper(A, lo, p-1)
+        quicksorthelper(A, p+1, hi)        
         
-def mypartition(A, lo, hi):
+def partition(A, lo, hi):
     pivot = A[hi]
     i = lo
     for j in range(lo, hi):
@@ -80,6 +80,72 @@ def mypartition(A, lo, hi):
     A[i], A[hi] = A[hi], A[i]
     return i
 
-alist = [54,26,93,17,77,31,44,55,20]
-myquicksort(alist)
-print(alist)
+alist5 = [54,26,93,17,77,31,44,55,20]
+quicksort(alist5)
+print(alist5)
+
+def mergesort(A):
+    if len(A) > 1:
+        mid = len(A) // 2
+        left = A[:mid]
+        right = A[mid:]
+ 
+        mergesort(left)
+        mergesort(right)
+ 
+        i=0
+        j=0
+        k=0
+        while i<len(left) and j<len(right):
+            if left[i]<right[j]:
+                A[k]=left[i]
+                i += 1
+            else:
+                A[k]=right[j]
+                j += 1
+            k += 1
+ 
+        while i<len(left):
+            A[k]=left[i]
+            i += 1
+            k += 1
+ 
+        while j<len(right):
+            A[k]=right[j]
+            j += 1
+            k += 1
+
+alist6 = [54,26,93,17,77,31,44,55,20]
+mergesort(alist6)
+print(alist6)
+
+def heapsort(a):
+    def sift(start, count):
+        root = start
+ 
+        while root * 2 + 1 < count:
+            child = root * 2 + 1
+            if child < count - 1 and a[child] < a[child + 1]:
+                child += 1
+            if a[root] < a[child]:
+                a[root], a[child] = a[child], a[root]
+                root = child
+            else:
+                return
+ 
+    count = len(a)
+    start = count / 2 - 1
+    end = count - 1
+ 
+    while start >= 0:
+        sift(start, count)
+        start -= 1
+ 
+    while end > 0:
+        a[end], a[0] = a[0], a[end]
+        sift(0, end)
+        end -= 1
+ 
+alist7 = [54,26,93,17,77,31,44,55,20]
+heapsort(alist7)
+print(alist7)
